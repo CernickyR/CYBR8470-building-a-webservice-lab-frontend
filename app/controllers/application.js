@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
     logout(){
       this.get('auth').logout();
     },
-    activateCloudbit(){
+    activateIFTTT(){
       var data = {
         eventtype: 'dashboard_on',
         timestamp: Date.now().toString(),
@@ -23,13 +23,13 @@ export default Ember.Controller.extend({
       };
 
       Ember.$.ajax({
-        url:'/api/activatecloudbit',
+        url:'/api/activateifttt',
         type:"POST",
         data: JSON.stringify(data),
         contentType:"application/json",
         dataType:"json",
         success: function(response){
-          console.log('Attempting to turn cloudbit on. Response from server is: ');
+          console.log('Attempting to turn ifttt on. Response from server is: ');
           console.log(response);
         }
       });

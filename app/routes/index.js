@@ -3,17 +3,17 @@ import Ember from 'ember';
 
 var defaultitems = Ember.A([
   {
-    title: '2017 Gencyber Announcement',
-    description: 'We are excited to have you!',
+    title: 'CYBR 8470',
+    description: 'Exciting stuff!',
     img: 'img/NGC-logo.png',
     link: '',
-    link_external: 'http://www.nebraskagencyber.com'
+    link_external: 'http://mlhale.github.io/CYBR8470'
 
   },
 	{
-		title: 'Event Template',
-		description: 'You are seeing this template, because you haven\'t loaded any data into your client yet. This Template will be used to display events from your Cloudbit',
-    img: 'img/littlebits.jpg',
+		title: 'Masonry-based Event Display Template',
+		description: 'You are seeing this template, because you haven\'t loaded any data into your client yet. This Template will be used to display events as they load from your REST API.',
+    img: 'img/template-icon.svg',
     link: 'index'
 
 	},
@@ -29,11 +29,11 @@ export default Ember.Route.extend({
         // console.log(event);
         items.addObject({
           id: event.pk,
-          eventtype: event.fields.eventtype.replace('amplitude:',''),
+          eventtype: event.fields.eventtype,
           requestor: event.fields.requestor,
           timestamp: event.fields.timestamp,
           userid: event.fields.userid,
-          img: 'img/littlebits.jpg',
+          img: 'img/event-icon.jpg',
           link: 'index'
         });
       });
