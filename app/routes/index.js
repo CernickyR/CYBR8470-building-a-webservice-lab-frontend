@@ -24,7 +24,7 @@ var defaultitems = Ember.A([
 export default Ember.Route.extend({
   getData(){
     var items = Ember.A([]);
-    return Ember.$.get('/api/deviceevents').then(function(events){
+    return Ember.$.get('/api/events').then(function(events){
       events.forEach(function(event){
         // console.log(event);
         items.addObject({
@@ -38,6 +38,9 @@ export default Ember.Route.extend({
         });
       });
       return items.reverse()
+    }, function(msg){//error
+      console.log('Error loading events:');
+      console.log(msg.statusText);
     });
   },
 	model() {
